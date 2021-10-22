@@ -1,0 +1,84 @@
+#include <iostream>
+#include <cstdio>
+#include <string>
+using namespace std;
+int main() {
+ios::sync_with_stdio;
+string n, m;
+int sum = 0;
+cin >> n >> m;
+for (int i = 0; i < n.size(); i++) {
+for (int j = 0; j < m.size(); j++) {
+sum += (n[i] - '0') * (m[j] - '0');
+}
+}
+printf("%d", sum);
+return 0;
+}
+
+========================================================
+
+(setq num1 "675")
+(setq num2 "904")
+(setq sum 0)
+(loop  for i across  num1
+    append  (loop  for j across num2
+        do(setq  digit1  (-(char-int  i) (char-int #\0)))
+        do(setq  digit2  (-(char-int  j) (char-int  #\0)))
+        do(setq  sum (+ sum (* digit1 digit2)))
+    )
+)
+(print sum)
+
+========================================================
+
+(setq num1 "1042")
+(setq num2 "873")
+(setq sum 0)
+(loop  for i across  num1
+    append  (loop  for j across num2
+        do(setq  digit1  (-(char-int  i) (char-int #\0)))
+        do(setq  digit2  (-(char-int  j) (char-int  #\0)))
+        do(setq  sum (+ sum (* digit1 digit2)))
+    )
+)
+(print sum)
+
+
+(print #\0)
+(write-char #\Newline)
+(write-char #\0)
+(write-char #\Newline)
+(print (char-int #\0))
+(write-char #\Newline)
+(print (char-int #\8))
+(write-char #\Newline)
+(print (char-int #\4))
+
+============================================================
+
+(defun Main()
+(terpri)
+(setq Result 0)
+;(princ  "Enter The First Number: ")
+(setq n 1042)
+;(princ  "Enter The Second  Number: ")
+(setq m 873)
+(loop while (> n 0)
+    do(
+        progn(setq  d1 (mod n 10))
+        (setq tt (+ m 0))
+        (loop  while (> tt 0)
+            do(
+                progn(setq  d2 (mod tt 10))
+                (setq d (* d1 d2))
+                (setq Result (+ Result d))
+                (setq tt (floor tt 10))
+            )
+        )
+        (setq n (floor n 10))
+    )
+)
+(princ  "Result: ")
+(write Result))
+(Main)
